@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapa Elo - Centro Acadêmico</title>
     <style>
-        /* --- Configurações Gerais e Estilo Base --- */
+    
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 
         :root {
@@ -28,7 +28,7 @@
             background-color: var(--background-color);
             color: var(--primary-color);
             text-align: center;
-            padding-top: 20px;
+            padding: 20px 15px 0 15px;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
@@ -39,7 +39,7 @@
             flex: 1; 
         }
 
-        /* --- Cabeçalho e Título Principal --- */
+       
         header {
             padding: 20px 0;
             margin-bottom: 30px;
@@ -60,7 +60,7 @@
             margin-bottom: 10px;
         }
         
-        /* --- Seção Inicial de Navegação --- */
+   
         #initial-options {
             display: flex;
             flex-direction: column;
@@ -247,7 +247,7 @@
             max-width: 250px;
         }
         
-        /* --- Animações --- */
+      
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -284,6 +284,7 @@
             <div class="member-card"><h3>Gabriel Sardinha de Sena</h3><p>1° período</p><img src="gabriel.jpg" alt="Foto de Gabriel Sardinha de Sena" class="member-photo"><a href="https://www.instagram.com/gabriel_de_sena_" target="_blank">Instagram: @gabriel_de_sena_</a></div>
             <div class="member-card"><h3>Lívia Alessandra Mendes Campos</h3><p>4° período</p><img src="livia.jpg" alt="Foto de Lívia Alessandra Mendes Campos" class="member-photo"><a href="https://www.instagram.com/liviaa.mc" target="_blank">Instagram: @liviaa.mc</a></div>
             <div class="member-card"><h3>Beatriz Muniz Barbosa Souza</h3><p>7° período</p><img src="beatriz.jpg" alt="Foto de Beatriz Muniz Barbosa Souza" class="member-photo"><a href="https://www.instagram.com/beatrzmuniz" target="_blank">Instagram: @beatrzmuniz</a></div>
+            <div class="member-card"><h3>Pedro Lucas Borges</h3><p>8° período</p><img src="pedro.jpg" alt="Foto de Pedro Lucas Borges" class="member-photo"><a href="https://www.instagram.com/pedromedunc" target="_blank">Instagram: @pedromedunc</a></div>
             <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
         </section>
 
@@ -320,7 +321,7 @@
     
 
     <script>
-        // O JavaScript continua o mesmo
+      
         const initialOptions = document.getElementById('initial-options');
         const contentSections = document.querySelectorAll('.content-section');
         function showSection(sectionId) {
@@ -361,4 +362,5 @@
 </body>
 </html>
    
+
 
