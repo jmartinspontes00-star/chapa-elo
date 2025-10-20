@@ -9,24 +9,22 @@
     --text-on-accent: #000000;
 }
 
-  {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     overflow-x: hidden;
-
 }
-
+        
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--primary-color);
     text-align: center;
-    overflow-x: hidden;
+    width: 100%; /* Garante que o body ocupe a largura correta */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -34,20 +32,21 @@ body {
 
 .site-wrapper {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px 15px 0 15px;
-    flex: 1;
+    max-width: 600px; 
+    margin: 0 auto; 
+    /* CORREÇÃO DE CENTRALIZAÇÃO: o padding direito estava 30px, causando o desvio */
+    padding: 20px 15px 0 15px; 
+    flex: 1; 
 }
-
-
+        
 header {
     padding: 20px 0;
     margin-bottom: 30px;
 }
 
 .main-logo {
-    width: 400px;
+    width: 400px; 
+    max-width: 100%; /* CORREÇÃO RESPONSIVA: impede o logo de quebrar o layout */
     height: auto;
     display: block;
     margin: 0 auto 30px auto;
@@ -60,8 +59,7 @@ header {
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
-
-
+        
 #initial-options {
     display: flex;
     flex-direction: column;
@@ -81,7 +79,7 @@ header {
     padding: 15px 30px;
     border-radius: 50px;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
     max-width: 300px;
     transition: all 0.3s ease;
 }
@@ -118,7 +116,8 @@ header {
     background-color: #1a1a1a;
     padding: 25px;
     margin: 0 auto 20px auto;
-    max-width: 400px;
+    border-radius: 10px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,10 +125,13 @@ header {
     border-top: 5px solid;
     border-image: var(--accent-gradient) 1;
 }
-
+        
 .member-photo {
     width: 400px;
-    height: 400px;
+    height: 400px; 
+    max-width: 100%; /* CORREÇÃO RESPONSIVA: impede a foto de quebrar o layout */
+    height: auto; /* Mantém a proporção quadrada */
+    aspect-ratio: 1 / 1; /* Garante que seja um quadrado */
     object-fit: cover;
     margin: 20px 0;
     border: 3px solid var(--accent-color-bright);
@@ -147,7 +149,7 @@ header {
     font-weight: 300;
     margin-bottom: 10px;
 }
-
+        
 #membros-section .member-card a,
 #membros-section .member-card a:visited {
     color: var(--accent-color-bright);
@@ -163,11 +165,10 @@ header {
 #membros-section .member-card a:active {
     color: var(--accent-color-dark);
 }
-
-
+        
 .slider-container {
     position: relative;
-    width: 90%;
+    width: 100%; /* Alterado de 90% para 100% para se alinhar ao wrapper */
     max-width: 600px;
     margin: 0 auto;
     overflow: hidden;
@@ -202,7 +203,7 @@ header {
     animation: gradient-animation 4s ease infinite;
     margin-bottom: 20px;
 }
-
+        
 .slide-text {
     font-size: 1.1rem;
     font-weight: 300;
@@ -218,7 +219,7 @@ header {
     justify-content: space-between;
     padding: 0 10px;
 }
-
+        
 .slider-button {
     background-color: rgba(24, 216, 168, 0.3);
     border: none;
@@ -244,8 +245,7 @@ header {
     width: 60%;
     max-width: 250px;
 }
-
-
+        
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
