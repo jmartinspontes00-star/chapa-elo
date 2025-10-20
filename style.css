@@ -24,7 +24,7 @@ body {
     background-color: var(--background-color);
     color: var(--primary-color);
     text-align: center;
-    width: 100%; /* Garante que o body ocupe a largura correta */
+    width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -34,7 +34,6 @@ body {
     width: 100%;
     max-width: 600px; 
     margin: 0 auto; 
-    /* CORREÇÃO DE CENTRALIZAÇÃO: o padding direito estava 30px, causando o desvio */
     padding: 20px 15px 0 15px; 
     flex: 1; 
 }
@@ -46,7 +45,7 @@ header {
 
 .main-logo {
     width: 400px; 
-    max-width: 100%; /* CORREÇÃO RESPONSIVA: impede o logo de quebrar o layout */
+    max-width: 100%; 
     height: auto;
     display: block;
     margin: 0 auto 30px auto;
@@ -129,9 +128,9 @@ header {
 .member-photo {
     width: 400px;
     height: 400px; 
-    max-width: 100%; /* CORREÇÃO RESPONSIVA: impede a foto de quebrar o layout */
-    height: auto; /* Mantém a proporção quadrada */
-    aspect-ratio: 1 / 1; /* Garante que seja um quadrado */
+    max-width: 100%; 
+    height: auto; 
+    aspect-ratio: 1 / 1; 
     object-fit: cover;
     margin: 20px 0;
     border: 3px solid var(--accent-color-bright);
@@ -168,7 +167,7 @@ header {
         
 .slider-container {
     position: relative;
-    width: 100%; /* Alterado de 90% para 100% para se alinhar ao wrapper */
+    width: 100%; 
     max-width: 600px;
     margin: 0 auto;
     overflow: hidden;
