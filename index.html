@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapa Elo - Centro Acadêmico</title>
     <style>
+    
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 
         :root {
@@ -22,13 +23,12 @@
             box-sizing: border-box;
         }
 
-    
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--background-color);
             color: var(--primary-color);
             text-align: center;
-            padding: 20px 15px 0 15px; 
+            padding: 20px 15px 0 15px;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
@@ -39,13 +39,14 @@
             flex: 1; 
         }
 
+       
         header {
             padding: 20px 0;
             margin-bottom: 30px;
         }
 
         .main-logo {
-            width: 150px; 
+            width: 550px; 
             height: auto;
             display: block;
             margin: 0 auto 30px auto;
@@ -59,6 +60,7 @@
             margin-bottom: 10px;
         }
         
+   
         #initial-options {
             display: flex;
             flex-direction: column;
@@ -92,6 +94,7 @@
             font-weight: bold;
         }
 
+        /* --- Seções de Conteúdo --- */
         .content-section {
             display: none;
             padding-top: 30px;
@@ -111,6 +114,7 @@
             animation: gradient-animation 4s ease infinite;
         }
 
+        /* --- Estilos da Seção "Membros" --- */
         #membros-section .member-card {
             background-color: #1a1a1a;
             padding: 25px;
@@ -126,9 +130,8 @@
         }
         
         .member-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            width: 400px;
+            height: 400px;
             object-fit: cover;
             margin: 20px 0;
             border: 3px solid var(--accent-color-bright);
@@ -163,6 +166,7 @@
             color: var(--accent-color-dark);
         }
         
+        /* --- Estilos da Seção "Plano de Gestão" --- */
         .slider-container {
             position: relative;
             width: 90%;
@@ -178,10 +182,10 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .slide {
             min-width: 100%;
-            padding: 40px 45px;
+            padding: 40px 50px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -243,7 +247,7 @@
             max-width: 250px;
         }
         
-        /* --- Animações --- */
+      
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -254,30 +258,12 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        #main-footer {
-            margin-top: -60px;
-            padding-top: 20px;
-            width: 100%;
-            background-color: transparent;
-            text-align: center;
-            position: relative;
-            z-index: -1;
-        }
-        
-        #main-footer img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="chapa elo.jpg" alt="Logo Chapa Elo" class="main-logo">
+        <img src="chapa elo.png" alt="Logo Chapa Elo" class="main-logo">
         <h1 class="main-title">Chapa Elo</h1>
     </header>
 
@@ -298,6 +284,7 @@
             <div class="member-card"><h3>Gabriel Sardinha de Sena</h3><p>1° período</p><img src="gabriel.jpg" alt="Foto de Gabriel Sardinha de Sena" class="member-photo"><a href="https://www.instagram.com/gabriel_de_sena_" target="_blank">Instagram: @gabriel_de_sena_</a></div>
             <div class="member-card"><h3>Lívia Alessandra Mendes Campos</h3><p>4° período</p><img src="livia.jpg" alt="Foto de Lívia Alessandra Mendes Campos" class="member-photo"><a href="https://www.instagram.com/liviaa.mc" target="_blank">Instagram: @liviaa.mc</a></div>
             <div class="member-card"><h3>Beatriz Muniz Barbosa Souza</h3><p>7° período</p><img src="beatriz.jpg" alt="Foto de Beatriz Muniz Barbosa Souza" class="member-photo"><a href="https://www.instagram.com/beatrzmuniz" target="_blank">Instagram: @beatrzmuniz</a></div>
+            <div class="member-card"><h3>Pedro Lucas Borges</h3><p>8° período</p><img src="pedro.jpg" alt="Foto de Pedro Lucas Borges" class="member-photo"><a href="https://www.instagram.com/pedromedunc" target="_blank">Instagram: @pedromedunc</a></div>
             <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
         </section>
 
@@ -331,8 +318,10 @@
             <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
         </section>
     </main>
+    
 
     <script>
+      
         const initialOptions = document.getElementById('initial-options');
         const contentSections = document.querySelectorAll('.content-section');
         function showSection(sectionId) {
@@ -372,5 +361,9 @@
 
 </body>
 </html>
+   
+
+
+
 
 
