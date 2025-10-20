@@ -23,19 +23,27 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+
+        }
+        
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--background-color);
             color: var(--primary-color);
             text-align: center;
-            padding: 20px 15px 0 15px;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-        }
+       }
 
-        main {
+        .site-wrapper {
+            width: 100%;
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px 15px 0 30px; 
             flex: 1; 
         }
 
@@ -94,7 +102,6 @@
             font-weight: bold;
         }
 
-     
         .content-section {
             display: none;
             padding-top: 30px;
@@ -113,7 +120,6 @@
             background-size: 200% 200%;
             animation: gradient-animation 4s ease infinite;
         }
-
 
         #membros-section .member-card {
             background-color: #1a1a1a;
@@ -166,7 +172,7 @@
             color: var(--accent-color-dark);
         }
         
-     
+    
         .slider-container {
             position: relative;
             width: 90%;
@@ -278,7 +284,7 @@
             <div class="member-card"><h3>Presidente: Alana Gandra Mendonça</h3><p>6° período</p><img src="alana.jpg" alt="Foto de Alana Gandra Mendonça" class="member-photo"><a href="https://www.instagram.com/alana_gandra" target="_blank">Instagram: @alana_gandra</a></div>
             <div class="member-card"><h3>Vice-Presidente: Giovanna Miranda Camargos</h3><p>5° período</p><img src="giovanna.jpg" alt="Foto de Giovanna Miranda Camargos" class="member-photo"><a href="https://www.instagram.com/gi.mirandac" target="_blank">Instagram: @gi.mirandac</a></div>
             <div class="member-card"><h3>Yara Rodrigues Mendes de Lima</h3><p>1° período</p><img src="yara.jpg" alt="Foto de Yara Rodrigues Mendes de Lima" class="member-photo"><a href="https://www.instagram.com/yara_rodrigues" target="_blank">Instagram: @yara_rodrigues</a></div>
-            <div class="member-card"><h3>João Pedroso Martins Pontes</h3><p>2° período</p><img src="joao.jpg" alt="Foto de João Pedroso Martins Pontes" class="member-photo"><a href="https://www.instagram.com/joaopedropontes001" target="_blank">Instagram: @joaopedropontes001</a></div>
+            <div class="member-card"><h3>João Pedro Martins Pontes</h3><p>2° período</p><img src="joao.jpg" alt="Foto de João Pedroso Martins Pontes" class="member-photo"><a href="https://www.instagram.com/joaopedropontes001" target="_blank">Instagram: @joaopedropontes001</a></div>
             <div class="member-card"><h3>Matheus Vinicius Lemes</h3><p>5° período</p><img src="matheus.jpg" alt="Foto de Matheus Vinicius Lemes" class="member-photo"><a href="https://www.instagram.com/matheus_vlemes" target="_blank">Instagram: @matheus_vlemes</a></div>
             <div class="member-card"><h3>Thiago Gabriel Aires Saad</h3><p>3° período</p><img src="thiago.jpg" alt="Foto de Thiago Gabriel Aires Saad" class="member-photo"><a href="https://www.instagram.com/_thiagosaad" target="_blank">Instagram: @_thiagosaad</a></div>
             <div class="member-card"><h3>Gabriel Sardinha de Sena</h3><p>1° período</p><img src="gabriel.jpg" alt="Foto de Gabriel Sardinha de Sena" class="member-photo"><a href="https://www.instagram.com/gabriel_de_sena_" target="_blank">Instagram: @gabriel_de_sena_</a></div>
@@ -362,6 +368,9 @@
 </body>
 </html>
    
+
+
+
 
 
 
