@@ -4,69 +4,324 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapa Elo - Centro Acadêmico</title>
+    <style>
     
-    <link rel="stylesheet" href="style.css">
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
+
+        :root {
+            --primary-color: #ffffff;
+            --background-color: #000000;
+            --accent-color-bright: #18D8A8;
+            --accent-color-dark: #0A7A6E;
+            --accent-gradient: linear-gradient(45deg, var(--accent-color-bright), var(--accent-color-dark));
+            --text-on-accent: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 20px 15px 0 15px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1; 
+        }
+
+       
+        header {
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .main-logo {
+            width: 550px; 
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+   
+        #initial-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+            transition: opacity 0.5s ease;
+        }
+
+        .nav-button {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--accent-gradient);
+            background-size: 200% 200%;
+            animation: gradient-animation 4s ease infinite;
+            border-color: transparent;
+            color: var(--text-on-accent);
+            font-weight: bold;
+        }
+
+        /* --- Seções de Conteúdo --- */
+        .content-section {
+            display: none;
+            padding-top: 30px;
+            text-align: left;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient-animation 4s ease infinite;
+        }
+
+        /* --- Estilos da Seção "Membros" --- */
+        #membros-section .member-card {
+            background-color: #1a1a1a;
+            padding: 25px;
+            margin: 0 auto 20px auto;
+            border-radius: 10px;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 5px solid;
+            border-image: var(--accent-gradient) 1;
+        }
+        
+        .member-photo {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            margin: 20px 0;
+            border: 3px solid var(--accent-color-bright);
+        }
+
+        #membros-section .member-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        #membros-section .member-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        #membros-section .member-card a,
+        #membros-section .member-card a:visited {
+            color: var(--accent-color-bright);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        #membros-section .member-card a:hover {
+            color: var(--primary-color);
+        }
+
+        #membros-section .member-card a:active {
+            color: var(--accent-color-dark);
+        }
+        
+        /* --- Estilos da Seção "Plano de Gestão" --- */
+        .slider-container {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #111;
+            transition: height 0.5s ease-in-out;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 40px 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient-animation 4s ease infinite;
+            margin-bottom: 20px;
+        }
+        
+        .slide-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        
+        .slider-button {
+            background-color: rgba(24, 216, 168, 0.3);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-button:hover {
+            background-color: rgba(24, 216, 168, 0.6);
+        }
+
+        .back-button {
+            display: block;
+            margin: 30px auto 0 auto;
+            width: 60%;
+            max-width: 250px;
+        }
+        
+      
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="site-wrapper">
-        <header>
-            <img src="chapa elo.png" alt="Logo Chapa Elo" class="main-logo">
-            <h1 class="main-title">Chapa Elo</h1>
-        </header>
+    <header>
+        <img src="chapa elo.png" alt="Logo Chapa Elo" class="main-logo">
+        <h1 class="main-title">Chapa Elo</h1>
+    </header>
 
-        <main id="main-content">
-            <div id="initial-options">
-                <button class="nav-button" onclick="showSection('membros-section')">Membros</button>
-                <button class="nav-button" onclick="showSection('propostas-section')">Plano de Gestão</button>
-            </div>
-            
-            <section id="membros-section" class="content-section">
-                <h2 class="section-title">Membros</h2>
-                <div class="member-card"><h3>Presidente: Alana Gandra Mendonça</h3><p>6° período</p><img src="alana.jpg" alt="Foto de Alana Gandra Mendonça" class="member-photo"><a href="https://www.instagram.com/alana_gandra" target="_blank">Instagram: @alana_gandra</a></div>
-                <div class="member-card"><h3>Vice-Presidente: Giovanna Miranda Camargos</h3><p>5° período</p><img src="giovanna.jpg" alt="Foto de Giovanna Miranda Camargos" class="member-photo"><a href="https://www.instagram.com/gi.mirandac" target="_blank">Instagram: @gi.mirandac</a></div>
-                <div class="member-card"><h3>Yara Rodrigues Mendes de Lima</h3><p>1° período</p><img src="yara.jpg" alt="Foto de Yara Rodrigues Mendes de Lima" class="member-photo"><a href="https://www.instagram.com/yara_rodrigues" target="_blank">Instagram: @yara_rodrigues</a></div>
-                <div class="member-card"><h3>João Pedro Martins Pontes</h3><p>2° período</p><img src="joao.jpg" alt="Foto de João Pedroso Martins Pontes" class="member-photo"><a href="https://www.instagram.com/joaopedropontes001" target="_blank">Instagram: @joaopedropontes001</a></div>
-                <div class="member-card"><h3>Matheus Vinicius Lemes</h3><p>5° período</p><img src="matheus.jpg" alt="Foto de Matheus Vinicius Lemes" class="member-photo"><a href="https://www.instagram.com/matheus_vlemes" target="_blank">Instagram: @matheus_vlemes</a></div>
-                <div class="member-card"><h3>Thiago Gabriel Aires Saad</h3><p>3° período</p><img src="thiago.jpg" alt="Foto de Thiago Gabriel Aires Saad" class="member-photo"><a href="https://www.instagram.com/_thiagosaad" target="_blank">Instagram: @_thiagosaad</a></div>
-                <div class="member-card"><h3>Gabriel Sardinha de Sena</h3><p>1° período</p><img src="gabriel.jpg" alt="Foto de Gabriel Sardinha de Sena" class="member-photo"><a href="https://www.instagram.com/gabriel_de_sena_" target="_blank">Instagram: @gabriel_de_sena_</a></div>
-                <div class="member-card"><h3>Lívia Alessandra Mendes Campos</h3><p>4° período</p><img src="livia.jpg" alt="Foto de Lívia Alessandra Mendes Campos" class="member-photo"><a href="https://www.instagram.com/liviaa.mc" target="_blank">Instagram: @liviaa.mc</a></div>
-                <div class="member-card"><h3>Beatriz Muniz Barbosa Souza</h3><p>7° período</p><img src="beatriz.jpg" alt="Foto de Beatriz Muniz Barbosa Souza" class="member-photo"><a href="https://www.instagram.com/beatrzmuniz" target="_blank">Instagram: @beatrzmuniz</a></div>
-                <div class="member-card"><h3>Pedro Lucas Borges</h3><p>8° período</p><img src="pedro.jpg" alt="Foto de Pedro Lucas Borges" class="member-photo"><a href="https://www.instagram.com/pedromedunc" target="_blank">Instagram: @pedromedunc</a></div>
-                <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
-            </section>
+    <main id="main-content">
+        <div id="initial-options">
+            <button class="nav-button" onclick="showSection('membros-section')">Membros</button>
+            <button class="nav-button" onclick="showSection('propostas-section')">Plano de Gestão</button>
+        </div>
+        
+        <section id="membros-section" class="content-section">
+            <h2 class="section-title">Membros</h2>
+            <div class="member-card"><h3>Presidente: Alana Gandra Mendonça</h3><p>6° período</p><img src="alana.jpg" alt="Foto de Alana Gandra Mendonça" class="member-photo"><a href="https://www.instagram.com/alana_gandra" target="_blank">Instagram: @alana_gandra</a></div>
+            <div class="member-card"><h3>Vice-Presidente: Giovanna Miranda Camargos</h3><p>5° período</p><img src="giovanna.jpg" alt="Foto de Giovanna Miranda Camargos" class="member-photo"><a href="https://www.instagram.com/gi.mirandac" target="_blank">Instagram: @gi.mirandac</a></div>
+            <div class="member-card"><h3>Yara Rodrigues Mendes de Lima</h3><p>1° período</p><img src="yara.jpg" alt="Foto de Yara Rodrigues Mendes de Lima" class="member-photo"><a href="https://www.instagram.com/yara_rodrigues" target="_blank">Instagram: @yara_rodrigues</a></div>
+            <div class="member-card"><h3>João Pedroso Martins Pontes</h3><p>2° período</p><img src="joao.jpg" alt="Foto de João Pedroso Martins Pontes" class="member-photo"><a href="https://www.instagram.com/joaopedropontes001" target="_blank">Instagram: @joaopedropontes001</a></div>
+            <div class="member-card"><h3>Matheus Vinicius Lemes</h3><p>5° período</p><img src="matheus.jpg" alt="Foto de Matheus Vinicius Lemes" class="member-photo"><a href="https://www.instagram.com/matheus_vlemes" target="_blank">Instagram: @matheus_vlemes</a></div>
+            <div class="member-card"><h3>Thiago Gabriel Aires Saad</h3><p>3° período</p><img src="thiago.jpg" alt="Foto de Thiago Gabriel Aires Saad" class="member-photo"><a href="https://www.instagram.com/_thiagosaad" target="_blank">Instagram: @_thiagosaad</a></div>
+            <div class="member-card"><h3>Gabriel Sardinha de Sena</h3><p>1° período</p><img src="gabriel.jpg" alt="Foto de Gabriel Sardinha de Sena" class="member-photo"><a href="https://www.instagram.com/gabriel_de_sena_" target="_blank">Instagram: @gabriel_de_sena_</a></div>
+            <div class="member-card"><h3>Lívia Alessandra Mendes Campos</h3><p>4° período</p><img src="livia.jpg" alt="Foto de Lívia Alessandra Mendes Campos" class="member-photo"><a href="https://www.instagram.com/liviaa.mc" target="_blank">Instagram: @liviaa.mc</a></div>
+            <div class="member-card"><h3>Beatriz Muniz Barbosa Souza</h3><p>7° período</p><img src="beatriz.jpg" alt="Foto de Beatriz Muniz Barbosa Souza" class="member-photo"><a href="https://www.instagram.com/beatrzmuniz" target="_blank">Instagram: @beatrzmuniz</a></div>
+            <div class="member-card"><h3>Pedro Lucas Borges</h3><p>8° período</p><img src="pedro.jpg" alt="Foto de Pedro Lucas Borges" class="member-photo"><a href="https://www.instagram.com/pedromedunc" target="_blank">Instagram: @pedromedunc</a></div>
+            <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
+        </section>
 
-            <section id="propostas-section" class="content-section">
-                <h2 class="section-title">Plano de Gestão</h2>
-                <div class="slider-container">
-                    <div class="slider">
-                        <div class="slide"><div class="slide-number">1</div><p class="slide-text">Ampliar o número de vagas de monitoria, atendendo à crescente demanda e fortalecendo a formação dos estudantes por meio da experiência docente, desenvolvimento de habilidades acadêmicas e certificação institucional.</p></div>
-                        <div class="slide"><div class="slide-number">2</div><p class="slide-text">Ampliar a oferta de práticas no LabSim, fortalecendo a integração entre teoria e prática e promovendo o desenvolvimento de habilidades técnicas por meio de vivências simuladas.</p></div>
-                        <div class="slide"><div class="slide-number">3</div><p class="slide-text">Buscar, junto às autoridades competentes, a viabilização de convênio com o Hospital Frei Anacleto, visando desafogar o Hospital Municipal em relação a demandas de estágios extracurriculares.</p></div>
-                        <div class="slide"><div class="slide-number">4</div><p class="slide-text">Oferta contínua de minicursos com temas abrangentes e importantes na área médica, voltados para o aprimoramento prático e teórico dos estudantes, permitindo a participação de um maior número de estudantes.</p></div>
-                        <div class="slide"><div class="slide-number">5</div><p class="slide-text">Fomentar a participationação dos estudantes em projetos de extensão ensino e pesquisa, garantindo suporte técnico e institucional, e ampliando o acesso às informações sobre essas initiatives, de modo a aproximar o aprendizado acadêmico das demandas da comunidade e promover uma formação profissional mais humanizada.</p></div>
-                        <div class="slide"><div class="slide-number">6</div><p class="slide-text">Propor a flexibilização do processo de estabelecimento de convênios com hospitais, unidades básicas de saúde e programas de extensão, a fim de ampliar o acesso dos estudantes a experiências práticas supervisionadas e à inserção precoce no ambiente profissional.</p></div>
-                        <div class="slide"><div class="slide-number">7</div><p class="slide-text">Estimular a produção científica e o aprimoramento da escrita acadêmica por meio de oficinas, mentorias e parcerias com docentes, capacitando os estudantes para a iniciação científica e participação em eventos.</p></div>
-                        <div class="slide"><div class="slide-number">8</div><p class="slide-text">Fortalecer a comunicação entre o Centro Acadêmico, os estudantes e a coordenação, garantindo que todos sejam informados, ouvidos e representados, com transparência e participação ativa nas decisões.</p></div>
-                        <div class="slide"><div class="slide-number">9</div><p class="slide-text">Realizar eventos de extensão, promovendo a integração entre estudantes e comunidade, para que os alunos tenham contato direto com a população, desenvolvendo habilidades práticas, empatia e responsabilidade social.</p></div>
-                        <div class="slide"><div class="slide-number">10</div><p class="slide-text">Melhorar a integração e comunicação para com alunos transferidos e turmas às quais estão vinculados.</p></div>
-                        <div class="slide"><div class="slide-number">11</div><p class="slide-text">Maior contato entre discentes e médicos egressos da Unicerrado, a fim de proporcionar networking e trocas de experiências.</p></div>
-                        <div class="slide"><div class="slide-number">12</div><p class="slide-text">Ampliar o acesso dos estudantes a eventos científicos, incentivando a participação em congressos e simpósios por meio de parcerias que fortaleçam o protagonismo e o networking acadêmico.</p></div>
-                        <div class="slide"><div class="slide-number">13</div><p class="slide-text">Manter a publicação antecipada dos editais, garantindo maior tempo de preparação para os discentes e favorecendo uma participação mais organizada e planejada nas atividades acadêmicas.</p></div>
-                        <div class="slide"><div class="slide-number">14</div><p class="slide-text">Estabelecer convênios com as Secretarias de Saúde de Araguari, Morrinhos e Itumbiara, a fim de oferecer aos alunos do internato em Araguari vivência em serviços de urgência e emergência, não disponibilizados pela planta nessa local.</p></div>
-                        <div class="slide"><div class="slide-number">15</div><p class="slide-text">Estabelecer comunicação direta e contínua com os câmpus da internato, garantindo que os internos recebam informações completas e atualizadas sobre decisões e mudanças provenientes de Goiatuba.</p></div>
-                        <div class="slide"><div class="slide-number">16</div><p class="slide-text">Manter representantes do Centro Acadêmico em todos os câmpus de internato para atuarem de forma ativa e com canal de comunicação direto com os coordenadores da faculdade para promover maior resolutividade das demandas.</p></div>
-                        <div class="slide"><div class="slide-number">17</div><p class="slide-text">Preservar as conquistas alcançadas por gestões anteriores do Centro Acadêmico e criar um canal alternativo de comunicação, independente do WhatsApp, garantindo maior alcance, continuidade e efetividade no contato com os discentes.</p></div>
-                    </div>
-                    <div class="slider-nav">
-                        <button class="slider-button" id="prevBtn">&#10094;</button>
-                        <button class="slider-button" id="nextBtn">&#10095;</button>
-                    </div>
+        <section id="propostas-section" class="content-section">
+            <h2 class="section-title">Plano de Gestão</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide"><div class="slide-number">1</div><p class="slide-text">Ampliar o número de vagas de monitoria, atendendo à crescente demanda e fortalecendo a formação dos estudantes por meio da experiência docente, desenvolvimento de habilidades acadêmicas e certificação institucional.</p></div>
+                    <div class="slide"><div class="slide-number">2</div><p class="slide-text">Ampliar a oferta de práticas no LabSim, fortalecendo a integração entre teoria e prática e promovendo o desenvolvimento de habilidades técnicas por meio de vivências simuladas.</p></div>
+                    <div class="slide"><div class="slide-number">3</div><p class="slide-text">Buscar, junto às autoridades competentes, a viabilização de convênio com o Hospital Frei Anceto, visando desafogar o Hospital Municipal em relação a demandas de estágios extracurriculares.</p></div>
+                    <div class="slide"><div class="slide-number">4</div><p class="slide-text">Oferta contínua de minicursos com temas abrangentes e importantes na área médica, voltados para o aprimoramento prático e teórico dos estudantes, permitindo a participação de um maior número de estudantes.</p></div>
+                    <div class="slide"><div class="slide-number">5</div><p class="slide-text">Fomentar a participationação dos estudantes em projetos de extensão ensino e pesquisa, garantindo suporte técnico e institucional, e ampliando o acesso às informações sobre essas iniciativas, de modo a aproximar o aprendizado acadêmico das demandas da comunidade e promover uma formação profissional mais humanizada.</p></div>
+                    <div class="slide"><div class="slide-number">6</div><p class="slide-text">Propor a flexibilização do processo de estabelecimento de convênios com hospitais, unidades básicas de saúde e programas de extensão, a fim de ampliar o acesso dos estudantes a experiências práticas supervisionadas e à inserção precoce no ambiente profissional.</p></div>
+                    <div class="slide"><div class="slide-number">7</div><p class="slide-text">Estimular a produção científica e o aprimoramento da escrita acadêmica por meio de oficinas, mentorias e parcerias com docentes, capacitando os estudantes para a iniciação científica e participação em eventos.</p></div>
+                    <div class="slide"><div class="slide-number">8</div><p class="slide-text">Fortalecer a comunicação entre o Centro Acadêmico, os estudantes e a coordenação, garantindo que todos sejam informados, ouvidos e representados, com transparência e participação ativa nas decisões.</p></div>
+                    <div class="slide"><div class="slide-number">9</div><p class="slide-text">Realizar eventos de extensão, promovendo a integração entre estudantes e comunidade, para que os alunos tenham contato direto com a população, desenvolvendo habilidades práticas, empatia e responsabilidade social.</p></div>
+                    <div class="slide"><div class="slide-number">10</div><p class="slide-text">Melhorar a integração e comunicação para com alunos transferidos e turmas às quais estão vinculados.</p></div>
+                    <div class="slide"><div class="slide-number">11</div><p class="slide-text">Maior contato entre discentes e médicos egressos da Unicerrado, a fim de proporcionar networking e trocas de experiências.</p></div>
+                    <div class="slide"><div class="slide-number">12</div><p class="slide-text">Ampliar o acesso dos estudantes a eventos científicos, incentivando a participação em congressos e simpósios por meio de parcerias que fortaleçam o protagonismo e o networking acadêmico.</p></div>
+                    <div class="slide"><div class="slide-number">13</div><p class="slide-text">Manter a publicação antecipada dos editais, garantindo maior tempo de preparação para os discentes e favorecendo uma participação mais organizada e planejada nas atividades acadêmicas.</p></div>
+                    <div class="slide"><div class="slide-number">14</div><p class="slide-text">Estabelecer convênios com as Secretarias de Saúde de Araguari, Morrinhos e Itumbiara, a fim de oferecer aos alunos do internato em Araguari vivência em serviços de urgência e emergência, não disponibilizados pela planta nessa local.</p></div>
+                    <div class="slide"><div class="slide-number">15</div><p class="slide-text">Estabelecer comunicação direta e contínua com os câmpus da internato, garantindo que os internos recebam informações completas e atualizadas sobre decisões e mudanças provenientes de Goiatuba.</p></div>
+                    <div class="slide"><div class="slide-number">16</div><p class="slide-text">Manter representantes do Centro Acadêmico em todos os câmpus de internato para atuarem de forma ativa e com canal de comunicação direto com os coordenadores da faculdade para promover maior resolutividade das demandas.</p></div>
+                    <div class="slide"><div class="slide-number">17</div><p class="slide-text">Preservar as conquistas alcançadas por gestões anteriores do Centro Acadêmico e criar um canal alternativo de comunicação, independente do WhatsApp, garantindo maior alcance, continuidade e efetividade no contato com os discentes.</p></div>
                 </div>
-                <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
-            </section>
-        </main>
-    </div> <script>
+                <div class="slider-nav">
+                    <button class="slider-button" id="prevBtn">&#10094;</button>
+                    <button class="slider-button" id="nextBtn">&#10095;</button>
+                </div>
+            </div>
+            <button class="nav-button back-button" onclick="showInitialOptions()">Voltar</button>
+        </section>
+    </main>
+    
+
+    <script>
+      
         const initialOptions = document.getElementById('initial-options');
         const contentSections = document.querySelectorAll('.content-section');
         function showSection(sectionId) {
@@ -106,3 +361,5 @@
 
 </body>
 </html>
+   
+
